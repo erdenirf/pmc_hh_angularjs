@@ -1,0 +1,40 @@
+<div>
+
+<h1>{{model.Title}}</h1>
+  
+  <div>
+    <div class="col-6 d-inline-block">
+      <p>{{model.journal_nlm}}. {{model.date_epub}}; {{model.book_volume}}({{model.book_issue}}): {{model.book_first_page}}. doi: {{model.DOI}}</p>
+    </div>
+    <div class="col-4 d-inline-block">
+      <p>PMCID: {{model.PMCID}} PMID: {{model.PMID}}</p>
+    </div>
+  </div>
+  
+  <div>
+    <p>Authors: {{model.Author_fullname}}</p>
+    <p>Affiliations: {{model.Affiliations}}</p>
+  </div>
+  
+  <div>
+    <h3>Abstract</h2>
+    <p>{{model.Abstract}}</p>
+  </div>
+  
+  <div>
+    <h3>Full text</h2>
+    <p>{{model.Text_full}}</p>
+  </div>
+  
+  <div>
+    <h3>Glossary</h2>
+    <p>{{model.Glossary}}</p>
+  </div>
+  
+  <div>
+    <h3>References</h2>
+    <p ng-repeat="reference in model.References">{{reference}}</p>
+    <p ng-repeat="ref_id in model.Ref_ids"><a href="https://pubmed.ncbi.nlm.nih.gov/{{ref_id}}">https://pubmed.ncbi.nlm.nih.gov/{{ref_id}}</a></p>
+  </div>
+
+</div>

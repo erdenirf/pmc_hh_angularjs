@@ -1,0 +1,29 @@
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.form-row {
+  margin-bottom: 20px;
+}
+
+.form-column {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  #flex-wrap: wrap;
+  text-align: right;
+}
+
+.result-total {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.result-row {
+  border-bottom: 1px solid;
+  margin-bottom: 20px;
+}

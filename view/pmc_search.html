@@ -1,0 +1,44 @@
+<h1>{{Title}}</h1>
+
+<div>
+  <form role="search" name="PMCForm">
+    <div >
+      <div class="form-row">
+        <label for="search_text">Поиск:*</label>
+        <input class="form-control me-2" type="search" ng-model="search.text" id="search_text" placeholder="текст" required>
+      </div>
+      <div class="form-row ">
+        <div class="col-4 form-column">
+          <label for="quartile">Фильтр по квартилям:</label>
+          <select id="quartile" ng-model="search.quartile">
+            <option ng-selected="ng-model == ng-value" ng-value="0"></option>
+            <option ng-value="1">Q1-Q4</option>
+            <option ng-value="3">Q1-Q3</option>
+            <option ng-value="7">Q1-Q2</option>
+            <option ng-value="15">Q1 only</option>
+          </select>
+        </div>
+        <div class="col-4 form-column">
+          <label for="Country">Страна журнала:</label>
+          <select id="Country" ng-model="search.country">
+            <option ng-repeat="country in countries" ng-value="country">{{country}}</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div class="center">
+          <button class="btn btn-outline-success" ng-click="save(search, PMCForm)" type="submit">Поиск</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="result-total" ng-if="total > 0">
+    <p>Найдено значений: {{total}} (Ограничение 10000 шт.)</p>
+  </div>
+  <div class="result-row" ng-repeat="model in arrayModels">
+    <ng-include src="TemplateURL"></ng-include>
+    <p>{{model.Author_initials}}</p>
+    <p>{{model.journal_nlm}}. {{model.date_epub}}; {{model.book_volume}}({{model.book_issue}}): {{model.book_first_page}}. doi: {{model.DOI}}</p>
+    <p>PMCID: {{model.PMCID}} PMID: {{model.PMID}}</p>
+  </div>
+</div>
